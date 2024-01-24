@@ -5,7 +5,7 @@ int main() {
     int areaq;
     int areas;
     int areat;
-
+// int / i e a variavel dos numeros inteiros então o resulta como ex não pode dar 11/2 = 5.5
     printf("progama para cálculo da área da casa\n");
     areas = lateral*lateral ;
     printf("A área da sala é %i\n" , areas);
