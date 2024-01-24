@@ -1,9 +1,18 @@
 #include <stdio.h>
 int main() {
+    int lateral = 10;
+    int cquarto = 7;
+    int areaq;
+    int areas;
+    int areat;
+
     printf("progama para cálculo da área da casa\n");
-    printf("A área da sala é %i\n ,10*10")
-    printf("A área do banheiro é %i\n ,5*7")
-    printf("A área do banheiro é %i\n ,5*7")
-    printf("A área total é %i\n ,10*10 + 5*7 + 5*7");
+    areas = lateral*lateral ;
+    printf("A área da sala é %i\n" , areas);
+    areaq = cquarto*(lateral/2);
+    printf("A área do quarto é %i\n" , areaq);
+    printf("A área do banheiro é %i\n" , areaq);
+    areat = areas + 2*areaq;
+    printf("A área total é %i\n" , areat);
     return 0;
-}
+} 
