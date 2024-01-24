@@ -2,7 +2,13 @@
 #include <math.h>
 
 int main() {
-    areaCASA(11,7)
+    double areap;
+
+    areaCASA(11,7);
+    
+    areap = areaPiscina(2);
+    printf("A área da picina é %f\n" , areap);
+    return 0;
 }
 
 void areaCASA(float lateral, float cquarto){
@@ -21,20 +27,10 @@ void areaCASA(float lateral, float cquarto){
     printf("A área total é %f\n" , areat) ;
 }
 
-double areaPiscina(double raio){
+double areaPiscina(double raio) {
     return M_PI*pow(raio,2);
 }
 
-int main() {
-
-    double areap;
-    areaCASA();
-
-    areap = areaPiscina(2);
-    printf("A área da picina é %f\n" , areap);
-
-    return 0;
-} 
 
 // float e uma variavel que serve para mostrar os 7 dígitos decimais
 // double tem 2x a precisão de float, geralmente possui 15 dígitos decimais
