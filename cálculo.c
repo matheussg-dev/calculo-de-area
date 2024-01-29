@@ -2,43 +2,33 @@
 #include <math.h>
 
 int main() {
-    double areap;
-    double valorM2 = 1500;
-
-    areaCASA(11,7);
-
-    areap = areaPiscina(2);
-    printf("A área da picina é %f\n" , areap);
-    return 0;
-}
-
-void areaCASA(float lateral, float cquarto) {
-
+    float lateral = 10;
+    float cquarto = 7;
     float areaq;
     float areas;
     float areat;
+    double raio = 2;
+    double areap;
 
-    printf("progama para cálculo da área da casa\n");
-        areas = lateral*lateral;
-    printf("A área da sala é %f\n", areas);
-        areaq = cquarto*(lateral/2);
-    printf("A área do quarto é %f\n", areaq);
-    printf("A área do banheiro é %f\n", areaq);
-        areat = areas + 2*areaq;
-    printf("A área total é %f\n", areat);
+    printf("programa para calculo da area da casa\n");
+
+    areas = lateral * lateral;
+    printf("A area da sala e %f\n", areas);
+
+    areaq = cquarto * (lateral / 2);
+    printf("A area do quarto e %f\n", areaq);
+    printf("A area do banheiro e %f\n", areaq);
+
+    areat = areas + 2 * areaq;
+    printf("A area total e %f\n", areat);
+
+    areap = M_PI * pow(raio, 2);
+    printf("A area da piscina e %f\n", areap);
+
+    return 0;
 }
 
-double areap(double raio) {
-    return M_PI*pow(raio, 2);
-}
-
-double valor(double area) {
-    areat = 3;
-    valorM2 = 5;
-    return(valor area);
-}
-
-// float e uma variavel que serve para mostrar os 7 dígitos decimais
-// double tem 2x a precisão de float, geralmente possui 15 dígitos decimais
+// float e uma variavel que serve para mostrar os 7 digitos decimais
+// double tem 2x a precisao de float, geralmente possui 15 digitos decimais
 // separando o calculo da casa e da picina
 // adicionando valores para simplificar os decimais
