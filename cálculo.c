@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+
+
 void areaPiscina(double raio) {
     
     
@@ -8,18 +10,18 @@ void areaPiscina(double raio) {
     
     printf("A area da picina e %f\n" ,areap);
     
-    double valor = (int)(areap*100);
-    double novoValor = (double)(valor/100);
+    double calculoP = (int)(areap*100);
+    double novaAreaP = (double)(calculoP/100);
     
-    printf("A area da picina simplificada e %f\n", novoValor);
+    printf("A area da picina simplificada e %f\n", novaAreaP);
+    
    
 }
 
-void areaCASA(float lateral, float cquarto) {
+void areaCasa(float lateral, float cquarto) {
     
     float areaq;
     float areas;
-    float areat;
     
     printf("programa para calculo da area da casa\n");
     if (lateral < 0) {
@@ -37,14 +39,22 @@ void areaCASA(float lateral, float cquarto) {
             areat = areas + 2 * areaq;
             printf("A area total e %f\n", areat);
         }
-    }
+   }
 }
-
+double valorM {
+    
+    double valorM2 = 1500; //valor do metro quadrado
+    double valor = (areat*valorM2);
+    
+    printf("O preco da casa e de %f\n", valor);
+}
 int main() {
     
-    double valorM2 = 1500;
-    areaCASA(11,7);
+    double areat;
+    
+    areaCasa(11,7);
     areaPiscina(2);
+    valorM();
     
     return 0;
 }
