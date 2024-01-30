@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include <math.h>
 
+void areaPiscina(double raio) {
+    
+    
+    double areap = M_PI * pow(raio, 2);
+    
+    printf("A area da picina e %f\n" ,areap);
+    
+    double valor = (int)(areap*100);
+    double novoValor = (double)(valor/100);
+    
+    printf("A area da picina simplificada e %f\n", novoValor);
+   
+}
 
 void areaCASA(float lateral, float cquarto) {
     
@@ -25,35 +38,20 @@ void areaCASA(float lateral, float cquarto) {
             printf("A area total e %f\n", areat);
         }
     }
-
 }
 
 int main() {
-   
-    double areap;
-    double raio = 2;
+    
     double valorM2 = 1500;
-    
     areaCASA(11,7);
+    areaPiscina(2);
     
-    double areaPiscina(double raio) {
-    return M_PI * pow(raio, 2);
-    }
-
-    double valor(double area) {
-    double areat = 3;
-    double valorM2 = 5;
-    return (valorM2 * (area - areat));
-    }
-
-    areap = areaPiscina(2);
-    printf("A area da picina e %f\n" , areap);
-
     return 0;
 }
-
 
 // float e uma variavel que serve para mostrar os 7 digitos decimais
 // double tem 2x a precisao de float, geralmente possui 15 digitos decimais
 // separando o calculo da casa e da picina
 // adicionando valores para simplificar os decimais
+// trunc e um comando usada para remover dígitos após o ponto decimal
+// ou um calculo para simplificar a decimal
