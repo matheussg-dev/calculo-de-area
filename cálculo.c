@@ -13,31 +13,27 @@ void areaCasa(float lateral, float cquarto) {
     double areas;
     
     printf("Programa para calculo da area da casa\n");
-    if (lateral < 0) {
-        printf("Erro: lateral da sala < 0\n");
-    } else {
-        if (cquarto < 0) {
-            printf("Erro: lateral do quarto < 0\n");
+    if (lateral < 0 || cquarto < 0) {
+            printf("Erro: parametros < 0\n");
         } else {
             printf("Programa para calculo da area da casa\n");
-            areas = lateral * lateral;
-            printf("A area da sala e %f\n", areas ,"M2");
-            areaq = cquarto * (lateral / 2);
-            printf("A area do quarto e %f\n", areaq ,"M2");
-            printf("A area do banheiro e %f\n", areaq ,"M2");
-            areat = areas + 2 * areaq;
-            printf("A area total e %f\n", areat ,"M2");
+                areas = lateral * lateral;
+            printf("A area da sala e %f\n", areas);
+                areaq = cquarto * (lateral / 2);
+            printf("A area do quarto e %f\n", areaq);
+            printf("A area do banheiro e %f\n", areaq);
+                areat = areas + 2 * areaq;
+            printf("A area total e %f\n", areat);
         }
-    }
     double valorC = (areat*valorM2);
         printf("O preco da casa e de R$ %f\n", valorC);
 }
 
-void areaPiscina(double raio) {
+double areaPiscina(double raio) {
     
-    double areap;
+    double areap
     
-    if (raio >= 0) {
+     if (raio >= 0) {
         areap = M_PI * pow(raio, 2);
             printf("A area da piscina e %f\n", areap);
     } else {
@@ -47,7 +43,7 @@ void areaPiscina(double raio) {
     
     double calculoP = (int)(areap*100);
     double novaAreaP = (double)(calculoP/100);
-        printf("A area da piscina simplificada e %f\n", novaAreaP ,"M2");
+        printf("A area da piscina simplificada e %f\n", novaAreaP);
         
     double valorP = (novaAreaP*valorM2);
         printf("O preco da piscina e de R$ %f\n", valorP);
@@ -57,8 +53,9 @@ void areaPiscina(double raio) {
 double valor(double area) {
     if (area >= 0) {
         return (valorM2*area);
-    } 
+    }  else {
     return (-1);
+    }
 }
 
 int main() {
@@ -67,16 +64,16 @@ int main() {
     bool valorOK = false;
     
     areaCasa(0,0);
-    areaPiscina(0);
+    areaPiscina(1);
     preço = valor(0);
     valorOK = preço >= 0;
+    
     
     if (valorOK) {
         printf("O valor da construçao e de R$ %f\n", preço);
     } else {
         printf("O valor de area e negativo\n");
     }
-    
     printf("O valor do M2 e de R$ %f\n", valorM2);
     
     return 0;
