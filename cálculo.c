@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <math.h>
+#define true 1
+#define false 0
 
+typedef int bool;
 double valorM2 = 1500; //valor do metro quadrado
 
 void areaCasa(float lateral, float cquarto) {
@@ -45,14 +48,27 @@ void areaPiscina(double raio) {
 }
 
 double valor(double area) {
-    return (valorM2*area);
+    if (area >= 0) {
+        return (valorM2*area);
+    } 
+    return (-1);
 }
 
 int main() {
     
+    double preço;
+    bool valorOK = false;
+    
     areaCasa(11,7);
     areaPiscina(2);
-    valor(198);
+    preço = valor(6);
+    valorOK = preço >= 0;
+    
+    if (valorOK) {
+        printf("O valor da construçao e de R$ %f\n", preço);
+    } else {
+        printf("O valor de area e negativo\n");
+    }
     
     printf("O valor do M2 e de R$ %f\n", valorM2);
     
@@ -66,3 +82,20 @@ int main() {
 // trunc e um comando usada para remover dígitos após o ponto decimal
 // ou um calculo para simplificar a decimal
 // as informaçoes fora das variaveis sao globais dentro sao privadas
+// int main() {
+//    
+//    double preço;
+//     int valorOK = 0;          verdadeiro(1)
+//                               falso(0)
+//    preco = valor(-20);
+//    valorOK = preco >= 0; ou if (preco >= 0) valor = 1;
+//                             else valorOK = 0;
+//    if (valorOK) {
+//        printf("O valor da construçao e de R$ %f\n", preço);
+//    } else {
+//        printf("O valor de area e negativo\n");
+//    }
+//    
+//    return 0;
+//}
+//typedef altera a escrita de comandos como ex int para bool
