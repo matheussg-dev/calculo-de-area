@@ -2,6 +2,10 @@
 #include <math.h>
 #define true 1
 #define false 0
+const int ALVENARIA = 0;
+const int VINIL = 1;
+const int FIBRA = 2;
+const int PLASTICO = 3;
 
 typedef int bool;
 double valorM2 = 1500; //valor do metro quadrado
@@ -29,23 +33,32 @@ void areaCasa(float lateral, float cquarto) {
         printf("O preco da casa e de R$ %f\n", valorC);
 }
 
-double areaPiscina(double raio) {
+double areaPiscina(double raio, int material) {
     
-    double areap
+    double areap;
+    double valorM;
     
-     if (raio >= 0) {
+      if (raio >= 0) {
         areap = M_PI * pow(raio, 2);
             printf("A area da piscina e %f\n", areap);
     } else {
         return (-1);
         }
-
-    
+        
     double calculoP = (int)(areap*100);
     double novaAreaP = (double)(calculoP/100);
         printf("A area da piscina simplificada e %f\n", novaAreaP);
-        
-    double valorP = (novaAreaP*valorM2);
+    
+    if(material == ALVENARIA) valorM = 1500;
+    else
+        if(material == VINIL) valorM = 1100;
+        else
+            if(material == FIBRA) valorM = 750;
+            else
+                if(material == PLASTICO) valorM = 500;
+                else valorM = -1;
+ 
+    double valorP = (novaAreaP*valorM);
         printf("O preco da piscina e de R$ %f\n", valorP);
     
 }
@@ -64,7 +77,7 @@ int main() {
     bool valorOK = false;
     
     areaCasa(0,0);
-    areaPiscina(1);
+    areaPiscina(0,0);
     preço = valor(0);
     valorOK = preço >= 0;
     
