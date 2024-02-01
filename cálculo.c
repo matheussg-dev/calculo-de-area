@@ -10,7 +10,7 @@ const int PLASTICO = 3;
 typedef int bool;
 double valorM2 = 1500; //valor do metro quadrado
 
-void areaCasa(float lateral, float cquarto) {
+void valorCasa(float lateral, float cquarto) {
     
     double areat;
     double areaq;
@@ -33,15 +33,19 @@ void areaCasa(float lateral, float cquarto) {
         printf("O preco da casa e de R$ %f\n", valorC);
 }
 
-double areaPiscina(double raio, int material) {
+
+
+double valorPiscinaCicular(double raio, int material) {
     
     double areap;
     double valorM;
     
-      if (raio >= 0) {
+    
+      if (raio > 0) {
         areap = M_PI * pow(raio, 2);
             printf("A area da piscina e %f\n", areap);
     } else {
+         printf("Erro: parametro raio < 0\n");
         return (-1);
         }
         
@@ -57,6 +61,16 @@ double areaPiscina(double raio, int material) {
             else
                 if(material == PLASTICO) valorM = 500;
                 else valorM = -1;
+                
+    if(raio >= 0) {           
+        printf("material\tValor\n");
+        while (material <= 3) {
+            printf("%8i\t%9.2f\n", material, (raio*valorM));
+            material = material + 1;
+        }
+    } else {
+        return -1;
+    }           
  
     double valorP = (novaAreaP*valorM);
         printf("O preco da piscina e de R$ %f\n", valorP);
@@ -71,16 +85,13 @@ double valor(double area) {
     }
 }
 
-int main() {
+double valoresGerais(double construçao) {
     
     double preço;
     bool valorOK = false;
     
-    areaCasa(0,0);
-    areaPiscina(0,0);
-    preço = valor(0);
+    preço = construçao;
     valorOK = preço >= 0;
-    
     
     if (valorOK) {
         printf("O valor da construçao e de R$ %f\n", preço);
@@ -88,6 +99,14 @@ int main() {
         printf("O valor de area e negativo\n");
     }
     printf("O valor do M2 e de R$ %f\n", valorM2);
+    
+}
+
+int main() {
+    
+    valorCasa(0,0);
+    valorPiscinaCicular(0,0);
+    valoresGerais(0);
     
     return 0;
 }
@@ -116,3 +135,4 @@ int main() {
 //    return 0;
 //}
 //typedef altera a escrita de comandos como ex int para bool
+// /t - tabulaçao(tab) /n - quebra de linha
