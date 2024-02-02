@@ -20,7 +20,6 @@ void valorCasa(float lateral, float cquarto) {
     if (lateral < 0 || cquarto < 0) {
             printf("Erro: parametros < 0\n");
         } else {
-            printf("Programa para calculo da area da casa\n");
                 areas = lateral * lateral;
             printf("A area da sala e %f\n", areas);
                 areaq = cquarto * (lateral / 2);
@@ -43,9 +42,9 @@ double valorPiscinaCicular(double raio, int material) {
     
       if (raio > 0) {
         areap = M_PI * pow(raio, 2);
-            printf("A area da piscina e %f\n", areap);
+            printf("A area da piscina cicular e de %f\n", areap);
     } else {
-         printf("Erro: parametro raio < 0\n");
+         printf("Piscina cicular nao inclusa\n");
         return (-1);
         }
         
@@ -77,12 +76,30 @@ double valorPiscinaCicular(double raio, int material) {
     
 }
 
-double valor(double area) {
-    if (area >= 0) {
-        return (valorM2*area);
-    }  else {
-    return (-1);
-    }
+double valorPiscinaCicularQuadricular(double lateralLadoPiscina, double lateralSuperiorPiscina, double material) {
+    
+    double valorM;
+    double areaPiscinaQuadricular;
+    
+    if (lateralLadoPiscina > 0 || lateralSuperiorPiscina > 0) {
+        areaPiscinaQuadricular = (lateralSuperiorPiscina*lateralLadoPiscina);
+            printf("A area da piscina quadricular e de %f\n", areaPiscinaQuadricular);
+    } else {
+         printf("Piscina quadricular nao inclusa\n");
+        return (-1);
+        }
+    
+    if(material == ALVENARIA) valorM = 1500;
+    else
+        if(material == VINIL) valorM = 1100;
+        else
+            if(material == FIBRA) valorM = 750;
+            else
+                if(material == PLASTICO) valorM = 500;
+                else valorM = -1;
+                
+    double valorP = (areaPiscinaQuadricular*valorM);
+        printf("O preco da piscina e de R$ %f\n", valorP);
 }
 
 double valoresGerais(double construçao) {
@@ -91,21 +108,30 @@ double valoresGerais(double construçao) {
     bool valorOK = false;
     
     preço = construçao;
-    valorOK = preço >= 0;
+    valorOK = preço > 0;
     
     if (valorOK) {
-        printf("O valor da construçao e de R$ %f\n", preço);
+        printf("O valor do projeto e de R$ %f\n", preço);
     } else {
-        printf("O valor de area e negativo\n");
+        printf("O valor do projeto nao foi definido\n");
     }
     printf("O valor do M2 e de R$ %f\n", valorM2);
     
+}
+
+double valor(double area) {
+    if (area >= 0) {
+        return (valorM2*area);
+    }  else {
+    return (-1);
+    }
 }
 
 int main() {
     
     valorCasa(0,0);
     valorPiscinaCicular(0,0);
+    valorPiscinaCicularQuadricular(0,0,0);
     valoresGerais(0);
     
     return 0;

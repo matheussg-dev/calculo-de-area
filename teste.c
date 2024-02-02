@@ -14,3 +14,4 @@ while (material <= PLASTICO) {
     return 0;
 }
 //adiciona uma lista com os valores e o material
+
